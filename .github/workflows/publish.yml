@@ -1,10 +1,10 @@
-name: publish Ardalis.CleanArchitecture Template to nuget
+name: publish KPMG.TaxConnect.Template.FuncServiceBus to nuget
 on:
   push:
     branches:
       - main # Your default release branch
     paths:
-      - 'CleanArchitecture.nuspec'
+      - 'KPMG.TaxConnect.Template.FuncServiceBus.nuspec'
 jobs:
   publish:
     name: list on nuget
@@ -17,7 +17,7 @@ jobs:
           nuget-version: '5.x'
           
       - name: Package the template
-        run: nuget pack CleanArchitecture.nuspec -NoDefaultExcludes
+        run: nuget pack KPMG.TaxConnect.Template.FuncServiceBus.nuspec -NoDefaultExcludes
         
       - name: Publish to nuget.org
-        run: nuget push Ardalis.CleanArchitecture.Template.*.nupkg -src https://api.nuget.org/v3/index.json ${{secrets.NUGET_API_KEY}}
+        run: nuget push KPMG.TaxConnect.Template.FuncServiceBus.*.nupkg -src https://pkgs.dev.azure.com/KPMG-UK/8bacc871-4855-4450-9cdf-1bcc470589ff/_packaging/taxconnect/nuget/v3/index.json ${{secrets.NUGET_API_KEY}}
